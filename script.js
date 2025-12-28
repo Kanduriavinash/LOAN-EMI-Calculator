@@ -49,3 +49,12 @@ window.onload = function () {
         document.getElementById("themeBtn").innerText = "☀️";
     }
 };
+
+function formatINR(amount) {
+    return amount.toLocaleString("en-IN", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+
+
