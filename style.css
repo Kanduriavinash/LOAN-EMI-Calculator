@@ -1,0 +1,196 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background-color: linear-gradient(135deg,#667eea,#764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container{
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.container h1{
+    text-align: center;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.subtitle{
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.calculator{
+    width: 100%;
+}
+
+.input-group{
+    margin-bottom: 15px;
+}
+
+.input-group label{
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #555;
+}
+.input-group input{
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline:none;
+}
+
+.input-group input:focus{
+    border-color: #667eea;
+}
+
+button{
+    width: 100%;
+    padding: 12px;
+    background: #667eea;
+    color:white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+button:hover{
+    background: #5a67d8;
+}
+
+.result {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f4f6ff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.result h2 {
+    font-size: 16px;
+    color: #555;
+}
+
+#emi {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* for responsive ->*/
+
+/* For Tabs*/
+@media(max-width:768px){
+    .container{
+        max-width:380px;
+        padding:22px;
+    }
+    #emi{
+        font-size:22px;
+    }
+}
+
+/*For Mobiles*/
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .container h1 {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 15px;
+    }
+
+    #emi {
+        font-size: 20px;
+    }
+}
+
+/*for dark mode*/
+/* Theme Toggle Button */
+.theme-toggle {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#themeBtn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Smooth transition */
+body, .container, input, .result, .breakdown {
+    transition: background 0.3s, color 0.3s;
+}
+
+/* 🌙 DARK MODE */
+body.dark {
+    background: linear-gradient(135deg, #1e1e2f, #121212);
+}
+
+body.dark .container {
+    background: #1f1f2e;
+    color: #ffffff;
+}
+body.dark #emi {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+body.dark input {
+    background: #2a2a3d;
+    color: #ffffff;
+    border-color: #444;
+}
+
+body.dark .result,
+body.dark .breakdown {
+    background: #2a2a3d;
+}
+
+body.dark button {
+    background: #4f6ef7;
+}
+
+body.dark label,
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark p,
+body.dark td {
+    color: #ffffff;
+}
