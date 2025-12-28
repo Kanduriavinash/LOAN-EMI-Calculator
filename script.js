@@ -1,33 +1,38 @@
-function calculateEMI(){
-    const principal=parseFloat(document.getElementById("principal").value);
-    const annualRate=parseFloat(document.getElementById("rof").value);
-    const tenure=parseInt(document.getElementById("tenure").value);
+function calculateEMI() {
+    const principal = parseFloat(document.getElementById("principal").value);
+    const annualRate = parseFloat(document.getElementById("rof").value);
+    const tenure = parseInt(document.getElementById("tenure").value);
 
-    if(isNaN(principal) || isNaN(annualRate) || isNaN(tenure)){
-        alert("Please Fill all the fields with valid numbers.");
+    if (isNaN(principal) || isNaN(annualRate) || isNaN(tenure)) {
+        alert("Please fill all fields correctly.");
         return;
     }
 
-    if(principal<=0 || annualRate<0 || tenure<=0){
-        alert("values must be greater than zero.");
+    if (principal <= 0 || annualRate < 0 || tenure <= 0) {
+        alert("Values must be greater than zero.");
         return;
     }
 
-    //converting annual interest rate to monthly rate.
-    const monthlyRate=annualRate/12/100;
+    const monthlyRate = annualRate / 12 / 100;
     let emi;
 
-    if(monthlyRate==0){
-        emi=principal/tenure;
+    if (monthlyRate === 0) {
+        emi = principal / tenure;
+    } else {
+        emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, tenure)) /
+              (Math.pow(1 + monthlyRate, tenure) - 1);
     }
-    else{
-        emi=(principal*monthlyRate*Math.pow(1+monthlyRate,tenure))/(Math.pow(1+monthlyRate,tenure)-1);
 
-    }
+    const totalAmount = emi * tenure;
+    const totalInterest = totalAmount - principal;
 
-    document.getElementById("emi").innerHTML="₹ "+ emi.toFixed(2);
-
+    // Display formatted values
+    document.getElementById("emi").innerHTML = "₹ " + formatINR(emi);
+    document.getElementById("bp").innerHTML = "₹ " + formatINR(principal);
+    document.getElementById("bi").innerHTML = "₹ " + formatINR(totalInterest);
+    document.getElementById("bt").innerHTML = "₹ " + formatINR(totalAmount);
 }
+
 function toggleTheme() {
     document.body.classList.toggle("dark");
 
@@ -56,5 +61,6 @@ function formatINR(amount) {
         maximumFractionDigits: 2
     });
 }
+
 
 
