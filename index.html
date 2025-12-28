@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Loan EMI Calculator</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="theme-toggle">
+                <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+            </div>
+            <h1>Loan EMI Calculator</h1>
+            <p class="subtitle">Calculate your monthly loan EMI easily</p>
+
+            <div class="calculator">
+                <div class="input-group">
+                    <label for="principal">Principal Amount (₹)</label>
+                    <input type="number" id="principal" placeholder="Enter Loan Amount">
+                </div>
+
+                <div class="input-group">
+                    <label for="rof">Annual Interest Rate (%)</label>
+                    <input type="number" id="rof" placeholder="Enter interest rate" step="1">
+                </div>
+
+                <div class="input-group">
+                    <label for="tenure">Loan Tenure (Months)</label>
+                    <input type="number" id="tenure" placeholder="Enter tenure in months">
+                </div>
+
+                <button onclick="calculateEMI()">Calculate EMI</button>
+
+                <div class="result">
+                    <h2>Monthly EMI</h2>
+                    <p id="emi">₹0</p>
+                </div>
+
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
